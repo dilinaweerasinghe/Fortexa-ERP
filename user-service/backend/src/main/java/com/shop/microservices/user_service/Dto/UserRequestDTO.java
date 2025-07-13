@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Dto;
 
 import com.shop.microservices.user_service.Enumeration.UserStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import org.springdoc.api.annotations.ParameterObject;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Getter
 @Setter
+@Builder
 @ParameterObject
 @Schema(description = "Request DTO for creating or updating a User.")
 public class UserRequestDTO {

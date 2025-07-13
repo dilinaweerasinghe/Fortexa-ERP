@@ -16,6 +16,8 @@ import lombok.*;
 @Table(name = "role_permissions")
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

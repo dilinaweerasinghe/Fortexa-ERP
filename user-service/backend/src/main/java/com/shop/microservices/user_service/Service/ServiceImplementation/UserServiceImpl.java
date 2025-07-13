@@ -15,14 +15,14 @@ import java.util.List;
 
 @Service
 @Transactional
-public class IUserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService{
 
     @Autowired
     private final UserServiceMapper userServiceMapper;
     private final IUserRepository iUserRepository;
 
-    public IUserServiceImpl(UserServiceMapper userServiceMapper, IUserRepository iUserRepository){
-        this.userServiceMapper=userServiceMapper;
+    public UserServiceImpl(UserServiceMapper userServiceMapper, IUserRepository iUserRepository){
+        this.userServiceMapper = userServiceMapper;
         this.iUserRepository = iUserRepository;
     }
 

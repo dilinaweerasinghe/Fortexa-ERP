@@ -2,12 +2,15 @@ package com.shop.microservices.user_service.Dto;
 
 import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 
 /**
  * Data Transfer Object (DTO) for responding with Role information.
  * This DTO contains the necessary information for a Role response, such as role name, role type, and audit fields.
  */
+@Builder
 @Schema(description = "Response DTO for Role information.")
 public record RoleResponseDTO(
         @Schema(description = "The unique identifier of the Role", example = "123e4567-e89b-12d3-a456-426614174000")

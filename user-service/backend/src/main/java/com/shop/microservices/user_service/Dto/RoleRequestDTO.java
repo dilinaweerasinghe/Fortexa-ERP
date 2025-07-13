@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Dto;
 
 import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Getter
 @Setter
+@Builder
 @Schema(description = "Request DTO for creating or updating a Role.")
 public class RoleRequestDTO {
 
@@ -43,4 +45,6 @@ public class RoleRequestDTO {
             "GENERAL_MANAGER", "PRODUCT_MANAGER", "INVENTORY_MANAGER", "MARKETING_MANAGER", "SALES_MANAGER", "ACCOUNTANT",
             "CASHIER", "LOGISTIC_STAFF", "DATA_ANALYST", "WAREHOUSE_STAFF", "HR_MANAGER", "QA"}, enumAsRef = true, defaultValue = "USER")
     private RoleEnum roleType;
+
+    private String description;
 }

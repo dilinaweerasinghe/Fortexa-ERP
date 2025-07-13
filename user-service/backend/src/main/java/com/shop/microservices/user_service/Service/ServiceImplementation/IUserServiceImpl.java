@@ -5,7 +5,7 @@ import com.shop.microservices.user_service.Dto.UserResponseDTO;
 import com.shop.microservices.user_service.Enumeration.UserStatusEnum;
 import com.shop.microservices.user_service.Model.User;
 import com.shop.microservices.user_service.Repository.IUserRepository;
-import com.shop.microservices.user_service.Service.ServiceMapper.UserServiceMapper;
+import com.shop.microservices.user_service.Mapper.UserServiceMapper;
 import com.shop.microservices.user_service.Service.Serviceinterface.IUserService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

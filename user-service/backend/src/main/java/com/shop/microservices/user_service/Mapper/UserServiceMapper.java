@@ -1,4 +1,4 @@
-package com.shop.microservices.user_service.Service.ServiceMapper;
+package com.shop.microservices.user_service.Mapper;
 
 import com.shop.microservices.user_service.Dto.UserRequestDTO;
 import com.shop.microservices.user_service.Dto.UserResponseDTO;
@@ -35,15 +35,15 @@ public class UserServiceMapper {
         if(user ==null){
             return null;
         }
-         return UserResponseDTO.builder()
-                 .email(user.getEmail())
-                 .mobileNo(user.getMobileNo())
-                 .status(user.getStatus())
-                 .twoFactorEnabled(user.isTwoFactorEnabled())
-                 .createdDate(LocalDateTime.from(user.getCreatedDate()))
-                 .lastModifiedBy(String.valueOf(user.getLastModifiedDate()))
-                 .createdBy(user.getCreatedBy())
-                 .lastModifiedBy(user.getLastModifiedBy()).build();
+        return UserResponseDTO.builder()
+                .email(user.getEmail())
+                .mobileNo(user.getMobileNo())
+                .status(user.getStatus())
+                .twoFactorEnabled(user.isTwoFactorEnabled())
+                .createdDate(LocalDateTime.from(user.getCreatedDate()))
+                .lastModifiedBy(String.valueOf(user.getLastModifiedDate()))
+                .createdBy(user.getCreatedBy())
+                .lastModifiedBy(user.getLastModifiedBy()).build();
     }
 
     //map all the users to the DTO

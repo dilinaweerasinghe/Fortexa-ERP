@@ -9,6 +9,8 @@ import com.shop.microservices.user_service.Model.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RoleServiceMapper {
 
@@ -37,5 +39,15 @@ public class RoleServiceMapper {
                 .createdBy(role.getCreatedBy())
                 .lastModifiedBy(role.getLastModifiedBy())
                 .build();
+    }
+
+    //map All the Roles to the DTO
+    public List<RoleResponseDTO> GetAllRoles(List<Role> roles) {
+        if (roles == null) {
+            return null;
+        }
+        return roles.stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
     }
 }

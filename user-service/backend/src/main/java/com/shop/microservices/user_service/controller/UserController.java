@@ -22,7 +22,6 @@ public class UserController {
     public ResponseEntity<UserResponseDTO > AddNewUser(@RequestBody UserRequestDTO userRequestDTO){
         UserResponseDTO createUser = iUserService.AddNewUser(userRequestDTO);
         return  ResponseEntity.ok(createUser);
-
     }
 }
 

@@ -1,4 +1,4 @@
-package com.shop.microservices.user_service.controller;
+package com.shop.microservices.user_service.Controller;
 
 import com.shop.microservices.user_service.Dto.UserRequestDTO;
 import com.shop.microservices.user_service.Dto.UserResponseDTO;

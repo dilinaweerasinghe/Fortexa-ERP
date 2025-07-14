@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IPermissionService {
     //Add Permission
-    PermissionRequestDTO addPermission(PermissionRequestDTO permissionRequestDTO);
+    PermissionResponseDTO addPermission(PermissionRequestDTO permissionRequestDTO);
 
     //Get All Permissions
     List<PermissionResponseDTO> getAllPermissions();

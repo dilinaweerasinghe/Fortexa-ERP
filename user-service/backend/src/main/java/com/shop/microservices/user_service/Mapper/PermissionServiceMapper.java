@@ -46,4 +46,14 @@ public class PermissionServiceMapper {
                 .map(this::toDto)
                 .toList();
     }
+
+    //Map All permisions to DTO
+    public List<PermissionResponseDTO> toDtoList(List<Permission> permissions) {
+        if(permissions == null || permissions.isEmpty()) {
+            return List.of();
+        }
+        return permissions.stream()
+                .map(this::toDto)
+                .toList();
+    }
 }

@@ -1,4 +1,4 @@
-package com.shop.microservices.user_service.Controller;
+package com.shop.microservices.user_service.controller;
 
 import com.shop.microservices.user_service.Dto.UserRequestDTO;
 import com.shop.microservices.user_service.Dto.UserResponseDTO;
@@ -15,13 +15,14 @@ public class UserController {
     private final IUserService iUserService;
 
     public UserController (IUserService iUserService){
-        this.iUserService = iUserService;
+        this.iUserService=iUserService;
     }
 
     @PostMapping
     public ResponseEntity<UserResponseDTO > AddNewUser(@RequestBody UserRequestDTO userRequestDTO){
-        UserResponseDTO createUser = iUserService.AddNewUser(userRequestDTO);
+        UserResponseDTO createUser=iUserService.AddNewUser(userRequestDTO);
         return  ResponseEntity.ok(createUser);
+
     }
 }
 

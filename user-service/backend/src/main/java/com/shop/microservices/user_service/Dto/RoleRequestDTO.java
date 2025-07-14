@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 /**
  * Data Transfer Object (DTO) for creating or updating a Role in the system.
@@ -42,7 +41,6 @@ public class RoleRequestDTO {
      * -- SETTER --
      *  Sets the type of the Role.
      */
-    @NotNull(message = "Role type must not be null") // Add this annotation
     @Schema(description = "The type of the Role", example = "ADMIN", allowableValues = {"ADMIN", "OWNER", "SUPER_USER",
             "GENERAL_MANAGER", "PRODUCT_MANAGER", "INVENTORY_MANAGER", "MARKETING_MANAGER", "SALES_MANAGER", "ACCOUNTANT",
             "CASHIER", "LOGISTIC_STAFF", "DATA_ANALYST", "WAREHOUSE_STAFF", "HR_MANAGER", "QA"}, enumAsRef = true, defaultValue = "USER")

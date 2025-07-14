@@ -1,4 +1,4 @@
-package com.shop.microservices.user_service.Controller;
+package com.shop.microservices.user_service.Controllers;
 
 import com.shop.microservices.user_service.Dto.UserRequestDTO;
 import com.shop.microservices.user_service.Dto.UserResponseDTO;
@@ -23,5 +23,9 @@ public class UserController {
         UserResponseDTO createUser = iUserService.AddNewUser(userRequestDTO);
         return  ResponseEntity.ok(createUser);
     }
+
+    // Get all users
+
 }
+
 

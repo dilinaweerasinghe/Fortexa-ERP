@@ -34,4 +34,13 @@ public class RoleServiceImpl implements IRoleService {
         List<Role> roleResponse = iRoleRepository.findAll();
         return roleServiceMapper.GetAllRoles(roleResponse);
     }
+
+    //Get Role By ID
+    public RoleResponseDTO GetRoleById(String id) {
+        Role role = iRoleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role not found"));
+        return roleServiceMapper.toDto(role);
+    }
+
+
+
 }

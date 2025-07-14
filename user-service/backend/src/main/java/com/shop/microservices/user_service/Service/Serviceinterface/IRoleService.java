@@ -12,4 +12,7 @@ public interface IRoleService {
 
     // Get all roles from the system
      List<RoleResponseDTO> GetAllRoles();
+
+     //Get Role By ID
+     RoleResponseDTO GetRoleById(String id);
 }

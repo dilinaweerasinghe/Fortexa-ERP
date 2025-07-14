@@ -9,6 +9,7 @@ import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,14 +37,16 @@ public class UserServiceMapper {
             return null;
         }
         return UserResponseDTO.builder()
+                .id(user.getId())
+                .username(user.getUsername())
                 .email(user.getEmail())
                 .mobileNo(user.getMobileNo())
                 .status(user.getStatus())
                 .twoFactorEnabled(user.isTwoFactorEnabled())
-                .createdDate(LocalDateTime.from(user.getCreatedDate()))
+                .createdDate(LocalDateTime.ofInstant(user.getCreatedDate(), ZoneId.systemDefault()))
+                .lastModifiedDate(LocalDateTime.ofInstant(user.getLastModifiedDate(), ZoneId.systemDefault()))
                 .lastModifiedBy(String.valueOf(user.getLastModifiedDate()))
-                .createdBy(user.getCreatedBy())
-                .lastModifiedBy(user.getLastModifiedBy()).build();
+                .createdBy(user.getCreatedBy()).build();
     }
 
     //map all the users to the DTO

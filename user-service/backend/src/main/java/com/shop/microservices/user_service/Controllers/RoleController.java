@@ -3,11 +3,9 @@ package com.shop.microservices.user_service.Controllers;
 import com.shop.microservices.user_service.Dto.RoleRequestDTO;
 import com.shop.microservices.user_service.Dto.RoleResponseDTO;
 import com.shop.microservices.user_service.Service.Serviceinterface.IRoleService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class RoleController {
 
     //Add a Role
     @PostMapping
-    public ResponseEntity<RoleResponseDTO> addRole(RoleRequestDTO roleRequestDTO) {
+    public ResponseEntity<RoleResponseDTO> addRole(@Valid @RequestBody RoleRequestDTO roleRequestDTO) {
         RoleResponseDTO createdRole = iRoleService.AddNewRole(roleRequestDTO);
         return ResponseEntity.ok(createdRole);
     }

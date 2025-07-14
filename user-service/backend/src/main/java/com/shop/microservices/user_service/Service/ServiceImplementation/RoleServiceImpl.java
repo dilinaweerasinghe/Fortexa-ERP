@@ -6,7 +6,6 @@ import com.shop.microservices.user_service.Mapper.RoleServiceMapper;
 import com.shop.microservices.user_service.Model.Role;
 import com.shop.microservices.user_service.Repository.IRoleRepository;
 import com.shop.microservices.user_service.Service.Serviceinterface.IRoleService;
-import com.shop.microservices.user_service.Service.Serviceinterface.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -41,6 +40,20 @@ public class RoleServiceImpl implements IRoleService {
         return roleServiceMapper.toDto(role);
     }
 
+    //Delete Role By ID
+    public String DeleteRoleById(String id) {
+        Role role = iRoleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role not found"));
+        iRoleRepository.delete(role);
+        return id;
+    }
 
+    //Update Role By ID
+    public RoleResponseDTO UpdateRoleById(String id, RoleRequestDTO roleRequestDTO) {
+        Role existingRole = iRoleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role not found"));
+        existingRole.setRole(roleRequestDTO.getRoleType());
+        existingRole.setDescription(roleRequestDTO.getDescription());
+        Role updatedRole = iRoleRepository.save(existingRole);
+        return roleServiceMapper.toDto(updatedRole);
+    }
 
 }

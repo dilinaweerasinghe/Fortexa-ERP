@@ -15,4 +15,9 @@ public interface IRoleService {
 
      //Get Role By ID
      RoleResponseDTO GetRoleById(String id);
+
+    String DeleteRoleById(String id);
+
+    RoleResponseDTO UpdateRoleById(String id, RoleRequestDTO roleRequestDTO);
+
 }

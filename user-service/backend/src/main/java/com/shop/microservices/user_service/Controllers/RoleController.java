@@ -35,5 +35,26 @@ public class RoleController {
         return ResponseEntity.ok(allRoles);
     }
 
+    //Get Role by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<RoleResponseDTO> getRoleById(String id) {
+        RoleResponseDTO role = iRoleService.GetRoleById(id);
+        return ResponseEntity.ok(role);
+    }
+
+    //Delete Role by ID
+    @GetMapping("/delete/{id}")
+    public ResponseEntity<String> deleteRoleById(String id) {
+        String response = iRoleService.DeleteRoleById(id);
+        return ResponseEntity.ok(response);
+    }
+
+    //Update Role by ID
+    @PostMapping("/update/{id}")
+    public ResponseEntity<RoleResponseDTO> updateRoleById(String id, RoleRequestDTO roleRequestDTO) {
+        RoleResponseDTO updatedRole = iRoleService.UpdateRoleById(id, roleRequestDTO);
+        return ResponseEntity.ok(updatedRole);
+    }
+
 
 }

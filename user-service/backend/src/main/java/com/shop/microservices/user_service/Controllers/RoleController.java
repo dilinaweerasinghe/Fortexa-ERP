@@ -48,7 +48,7 @@ public class RoleController {
     }
 
     //Update Role by ID
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<RoleResponseDTO> updateRoleById(String id, RoleRequestDTO roleRequestDTO) {
         RoleResponseDTO updatedRole = iRoleService.UpdateRoleById(id, roleRequestDTO);
         return ResponseEntity.ok(updatedRole);

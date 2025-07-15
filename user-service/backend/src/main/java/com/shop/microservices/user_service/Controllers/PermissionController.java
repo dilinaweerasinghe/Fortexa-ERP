@@ -1,0 +1,31 @@
+package com.shop.microservices.user_service.Controllers;
+
+import com.shop.microservices.user_service.Dto.PermissionRequestDTO;
+import com.shop.microservices.user_service.Dto.PermissionResponseDTO;
+import com.shop.microservices.user_service.Service.Serviceinterface.IPermissionService;
+import com.shop.microservices.user_service.Service.Serviceinterface.IRoleService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("v1/api/permissions")
+public class PermissionController {
+
+    private final IPermissionService IPermissionService;
+
+    public PermissionController(IPermissionService IPermissionService) {
+        this.IPermissionService = IPermissionService;
+    }
+
+    //Add a Permission
+    @PostMapping
+    public ResponseEntity<PermissionResponseDTO> addPermission(@RequestBody PermissionRequestDTO permissionRequestDTO) {
+        PermissionResponseDTO createdPermission = IPermissionService.addPermission(permissionRequestDTO);
+        return ResponseEntity.ok(createdPermission);
+    }
+
+
+}

@@ -21,11 +21,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IUserRepository extends JpaRepository<User, String> {
 
-    // Query to fetch the permission based on the given username
-//    @Query(value = "SELECT  role_permission.id ,user.username,permission.permission FROM RolePermission rp" +
-//            "JOIN Role r ON rp.role_id = r.role_id" +
-//            "JOIN UserRole ur ON ur.role_id = r.role_id" +
-//            "JOIN User u ON u.user_id = ur.user_id" +
-//            "JOIN Permission p ON rp.permission_id = p.permission_id")
-//    String findPermissionByUsername(String username);
 }

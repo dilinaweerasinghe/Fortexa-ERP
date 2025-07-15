@@ -1,6 +1,7 @@
 package com.shop.microservices.user_service.Dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
  * This DTO contains the necessary information for a Permission response, such as permission name, description, and audit fields.
  */
 @Schema(description = "Response DTO for Permission information.")
+@Builder
 public record PermissionResponseDTO(
         @Schema(description = "The unique identifier of the Permission", example = "123e4567-e89b-12d3-a456-426614174000")
         String id,

@@ -3,10 +3,13 @@ package com.shop.microservices.user_service.Mapper;
 import com.shop.microservices.user_service.Dto.PermissionRequestDTO;
 import com.shop.microservices.user_service.Dto.PermissionResponseDTO;
 import com.shop.microservices.user_service.Model.Permission;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
+@Component
 public class PermissionServiceMapper {
 
     //Map PermissionRequest to Permission (Save)
@@ -30,9 +33,10 @@ public class PermissionServiceMapper {
                 .permission(permission.getPermission())
                 .id(permission.getId())
                 .createdBy(permission.getCreatedBy())
-                .createdDate(LocalDateTime.from(permission.getCreatedDate()))
+                .createdDate(LocalDateTime.ofInstant(permission.getCreatedDate(), ZoneId.systemDefault()))
+                .description(permission.getDescription())
                 .lastModifiedBy(permission.getLastModifiedBy())
-                .lastModifiedDate(LocalDateTime.from(permission.getLastModifiedDate()))
+                .lastModifiedDate(LocalDateTime.ofInstant(permission.getLastModifiedDate(), ZoneId.systemDefault()))
                 .build();
     }
 

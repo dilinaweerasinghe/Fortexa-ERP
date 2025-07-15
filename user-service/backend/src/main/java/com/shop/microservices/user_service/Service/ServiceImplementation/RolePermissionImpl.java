@@ -39,4 +39,11 @@ public class RolePermissionImpl implements IRolePermissionService {
         return rolePermissionServiceMapper.getAllRolePermissions(rolePermissions);
     }
 
+    //Get by Id
+    @Override
+    public RolePermissionResponseDTO getRolePermissionById(String id){
+        RolePermission rolePermission = iRolePermissionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("RolePermission not found with ID: " + id));
+        return rolePermissionServiceMapper.toDto(rolePermission);
+    }
 }

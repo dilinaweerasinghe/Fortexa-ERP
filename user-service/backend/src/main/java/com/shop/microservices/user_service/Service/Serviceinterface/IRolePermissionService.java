@@ -12,4 +12,7 @@ public interface IRolePermissionService {
 
     //Get All Permissions
     List<RolePermissionResponseDTO> getAllPermissionsByRole();
+
+    //Get by Id
+    RolePermissionResponseDTO getRolePermissionById(String id);
 }

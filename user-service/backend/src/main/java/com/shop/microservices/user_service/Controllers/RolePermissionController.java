@@ -32,4 +32,11 @@ public class RolePermissionController {
         return ResponseEntity.ok(response);
     }
 
+    //Get RolePermission by Id
+    @GetMapping("/{id}")
+    public ResponseEntity<RolePermissionResponseDTO> getRolePermissionById(@PathVariable String id) {
+        RolePermissionResponseDTO response = rolePermissionService.getRolePermissionById(id);
+        return ResponseEntity.ok(response);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Service.Serviceinterface;
 
 import com.shop.microservices.user_service.Dto.RolePermissionRequestDTO;
 import com.shop.microservices.user_service.Dto.RolePermissionResponseDTO;
+import com.shop.microservices.user_service.Enumeration.RoleEnum;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface IRolePermissionService {
 
     //Get by Id
     RolePermissionResponseDTO getRolePermissionById(String id);
+
+    //Get RolePermission by Role
+    List<RolePermissionResponseDTO> getRolePermissionByRole(String role);
 }

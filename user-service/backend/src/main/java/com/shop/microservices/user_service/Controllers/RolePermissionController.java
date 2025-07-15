@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Controllers;
 
 import com.shop.microservices.user_service.Dto.RolePermissionRequestDTO;
 import com.shop.microservices.user_service.Dto.RolePermissionResponseDTO;
+import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import com.shop.microservices.user_service.Service.Serviceinterface.IRolePermissionService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,13 @@ public class RolePermissionController {
     @GetMapping("/{id}")
     public ResponseEntity<RolePermissionResponseDTO> getRolePermissionById(@PathVariable String id) {
         RolePermissionResponseDTO response = rolePermissionService.getRolePermissionById(id);
+        return ResponseEntity.ok(response);
+    }
+
+    //Get RolePermission by Role
+    @GetMapping("/role/{role}")
+    public ResponseEntity<List<RolePermissionResponseDTO>> getRolePermissionByRole(@Valid @PathVariable String role) {
+        List<RolePermissionResponseDTO> response = rolePermissionService.getRolePermissionByRole(role);
         return ResponseEntity.ok(response);
     }
 

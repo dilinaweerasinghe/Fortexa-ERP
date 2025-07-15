@@ -8,6 +8,8 @@ import com.shop.microservices.user_service.Repository.IRolePermissionRepository;
 import com.shop.microservices.user_service.Service.Serviceinterface.IRolePermissionService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RolePermissionImpl implements IRolePermissionService {
 
@@ -30,5 +32,11 @@ public class RolePermissionImpl implements IRolePermissionService {
         return null;
     }
 
+    //Get All Permissions
+    @Override
+    public List<RolePermissionResponseDTO> getAllPermissionsByRole(){
+        List<RolePermission> rolePermissions = iRolePermissionRepository.findAll();
+        return rolePermissionServiceMapper.getAllRolePermissions(rolePermissions);
+    }
 
 }

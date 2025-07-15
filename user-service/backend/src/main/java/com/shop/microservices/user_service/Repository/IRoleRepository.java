@@ -24,6 +24,5 @@ import java.util.Optional;
 @Repository
 public interface IRoleRepository extends JpaRepository<Role, String> {
     //get the Role When RoleName is given
-
     Role findByRole(@NotNull(message = "Role must not be null") RoleEnum role);
 }

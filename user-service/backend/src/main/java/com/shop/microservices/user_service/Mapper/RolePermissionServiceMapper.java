@@ -9,6 +9,7 @@ import com.shop.microservices.user_service.Model.Permission;
 import com.shop.microservices.user_service.Model.Role;
 import com.shop.microservices.user_service.Model.RolePermission;
 import com.shop.microservices.user_service.Repository.IPermissionRepository;
+import com.shop.microservices.user_service.Repository.IRolePermissionRepository;
 import com.shop.microservices.user_service.Repository.IRoleRepository;
 import org.springframework.stereotype.Component;
 
@@ -21,10 +22,12 @@ import java.util.stream.Collectors;
 public class RolePermissionServiceMapper {
     private final IPermissionRepository IPermissionRepository;
     private final IRoleRepository IRoleRepository;
+    private final IRolePermissionRepository IRolePermissionRepository;
 
-    public RolePermissionServiceMapper(IPermissionRepository iPermissionRepository, IRoleRepository iRoleRepository) {
+    public RolePermissionServiceMapper(IPermissionRepository iPermissionRepository, IRoleRepository iRoleRepository, IRolePermissionRepository iRolePermissionRepository) {
         IPermissionRepository = iPermissionRepository;
         IRoleRepository = iRoleRepository;
+        IRolePermissionRepository = iRolePermissionRepository;
     }
 
     //RolePermissionRequest to the Entity (Save)
@@ -73,5 +76,21 @@ public class RolePermissionServiceMapper {
         return rolePermissions.stream()
                 .map(this::toDto)
                 .collect(Collectors.toList());
+    }
+
+    //Get RolePermissions by Role
+    public List<RolePermissionResponseDTO> getRolePermissionsByRole(String role) {
+        if (role == null) {
+            return null;
+        }
+        System.out.println("The role is: " + role);
+        List<RolePermission> rolePermissions = IRolePermissionRepository.findByRole(RoleEnum.valueOf(role));
+
+        //get the role id and create the role from it
+        //get the permission id and create the permission from it
+        //combine them to create the RolePermission entity
+
+
+        return getAllRolePermissions(rolePermissions);
     }
 }

@@ -1,8 +1,12 @@
 package com.shop.microservices.user_service.Repository;
 
+import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import com.shop.microservices.user_service.Model.Permission;
+import com.shop.microservices.user_service.Model.RolePermission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Repository interface for {@link Permission} entities.
@@ -19,5 +23,4 @@ import org.springframework.stereotype.Repository;
  */
  @Repository
  public interface IPermissionRepository extends JpaRepository<Permission, String> {
-     // Additional query methods can be defined here
  }

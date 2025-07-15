@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Service.ServiceImplementation;
 
 import com.shop.microservices.user_service.Dto.RolePermissionRequestDTO;
 import com.shop.microservices.user_service.Dto.RolePermissionResponseDTO;
+import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import com.shop.microservices.user_service.Mapper.RolePermissionServiceMapper;
 import com.shop.microservices.user_service.Model.RolePermission;
 import com.shop.microservices.user_service.Repository.IRolePermissionRepository;
@@ -46,4 +47,14 @@ public class RolePermissionImpl implements IRolePermissionService {
                 .orElseThrow(() -> new RuntimeException("RolePermission not found with ID: " + id));
         return rolePermissionServiceMapper.toDto(rolePermission);
     }
+
+    //Get RolePermission by Role
+    @Override
+    public List<RolePermissionResponseDTO> getRolePermissionByRole(String role) {
+        System.out.println("Role in getRolePermissionByRole: " + role);
+        List<RolePermission> rolePermissions = iRolePermissionRepository.findByRole(RoleEnum.valueOf(role));
+        return rolePermissionServiceMapper.getAllRolePermissions(rolePermissions);
+    }
+
+
 }

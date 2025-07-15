@@ -1,8 +1,12 @@
 package com.shop.microservices.user_service.Repository;
 
+import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import com.shop.microservices.user_service.Model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 /**
  * Repository interface for {@link Role} entities.
@@ -19,5 +23,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface IRoleRepository extends JpaRepository<Role, String> {
-    // Additional query methods can be defined here
+    //get the Role When RoleName is given
+
+    Role findByRole(@NotNull(message = "Role must not be null") RoleEnum role);
 }

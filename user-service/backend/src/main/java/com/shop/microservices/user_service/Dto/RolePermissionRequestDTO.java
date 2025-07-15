@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Dto;
 
 import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotNull;
  */
 @Getter
 @Setter
+@Builder
 @Schema(description = "Request DTO for creating or updating Role-Permission associations.")
 public class RolePermissionRequestDTO {
 

@@ -2,6 +2,7 @@ package com.shop.microservices.user_service.Dto;
 
 import com.shop.microservices.user_service.Enumeration.RoleEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
  * Data Transfer Object (DTO) for responding with Role-Permission information.
  * This DTO contains the necessary information for a Role-Permission response, such as ID, permission ID, role, and audit fields.
  */
+@Builder
 @Schema(description = "Response DTO for Role-Permission information.")
 public record RolePermissionResponseDTO(
         @Schema(description = "The unique identifier of the Role-Permission association", example = "123e4567-e89b-12d3-a456-426614174000")

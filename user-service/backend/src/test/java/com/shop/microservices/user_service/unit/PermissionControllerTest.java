@@ -11,6 +11,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -27,14 +29,19 @@ public class PermissionControllerTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
-
         permissionRequestDTO = new PermissionRequestDTO();
         permissionRequestDTO.setPermission("READ_USER");
+        permissionRequestDTO.setDescription("Allows reading user information");
 
-//        permissionResponseDTO = new PermissionResponseDTO();
-//        permissionResponseDTO.setId("1");
-//        permissionResponseDTO.setDescription("Permission to read user data");
+        permissionResponseDTO = PermissionResponseDTO.builder()
+                .id("1")
+                .permission("READ_USER")
+                .description("Allows reading user information")
+                .createdDate(LocalDateTime.now())
+                .lastModifiedDate(LocalDateTime.now())
+                .createdBy("admin")
+                .lastModifiedBy("admin")
+                .build();
     }
 
     @Test
@@ -44,7 +51,9 @@ public class PermissionControllerTest {
         ResponseEntity<PermissionResponseDTO> response = permissionController.addPermission(permissionRequestDTO);
 
         assertEquals(200, response.getStatusCodeValue());
-        //assertEquals("READ_USER", response.getBody().getName());
+        assertEquals("READ_USER", response.getBody().permission());
+        assertEquals("Allows reading user information", response.getBody().description());
+        assertEquals("1", response.getBody().id());
     }
 
 }
